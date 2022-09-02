@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/selfAjax.js"></script>
+</head>
+<body>
+    <script>
+        selfAjax({
+            method: 'GET',
+            url:'http://www.liulongbin.top:3006/api/getbooks',
+           /*  data:{
+               id:1
+            }, */
+            success: function(res){
+                console.log(res)
+            }
+        })
+        selfAjax({
+            method:'POST',
+            url:'http://www.liulongbin.top:3006/api/addbook',
+            data:{
+                bookname:'雾都孤儿',
+                author:'查尔斯·狄更斯',
+                publisher:'吉林大学出版社'
+
+            },
+            success: function(res){
+                console.log(res)
+            }
+        })
+    </script>
+</body>
+</html>

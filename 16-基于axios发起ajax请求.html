@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/axios.js"></script>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <button id="get">发起get请求</button><br>
+    <button id="post">发起post请求</button><br>
+    <button id="ajax">发起ajax请求</button>
+    <script>
+        $('#get').on('click',function(){
+            let url = 'http://www.liulongbin.top:3006/api/get'
+        let param = {name:'andy',age:18}
+
+        axios.get(url,{params: param}).then(function(res){
+         console.log(res.data)
+        })
+        })
+
+        $('#post').on('click',function(){
+            let url = 'http://www.liulongbin.top:3006/api/post'
+            let data = {name:'sam',age:19,sex:'男'}
+            axios.post(url,data).then(function(res){
+                console.log(res.data)
+            })
+        })
+
+        $('#ajax').on('click',function(){
+           /*  axios({
+                method:'POST',
+                url:'http://www.liulongbin.top:3006/api/post',
+                data:{
+                    name:'jim',
+                    age:'22',
+                    sex:'女'
+                }
+            }).then(function(res){
+                console.log(res.data)
+            })
+             */
+
+             axios({
+                method:'get',
+                url:'http://www.liulongbin.top:3006/api/get',
+               params:{
+                    name:'jim',
+                    age:'22',
+                    sex:'女'
+                }
+            }).then(function(res){
+                console.log(res.data)
+            })
+        })
+        
+    </script>
+</body>
+</html>
